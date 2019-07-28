@@ -1,0 +1,94 @@
+# First stab: 
+
+def greatest_factor_array(arr)
+	greatest_array = []
+	i = 0
+	while i < arr.length
+		greatest_array << greatest(arr[i])
+		i += 1
+    end
+	return greatest_array	
+end
+
+def greatest(num)
+	i = 2
+	greatest_factor = 0
+	while i <= num
+    	if num % i == 0
+			return greatest_factor = num / i
+        end
+		i += 2
+	end
+	return num
+end
+
+print greatest_factor_array([16, 7, 9, 14]) # => [8, 7, 9, 7]
+puts
+print greatest_factor_array([30, 3, 24, 21, 10]) # => [15, 3, 12, 21, 5]
+puts
+
+#Solution
+ef greatest_factor_array(arr)
+  new_arr = arr.map do |num|
+    if num % 2 == 0
+      greatest_factor(num)
+    else
+      num
+    end
+  end
+
+  return new_arr
+end
+
+def greatest_factor(num)
+  (1...num).reverse_each do |i|
+    if num % i == 0
+      return i
+    end
+  end
+end
+
+print greatest_factor_array([16, 7, 9, 14]) # => [8, 7, 9, 7]
+puts
+print greatest_factor_array([30, 3, 24, 21, 10]) # => [15, 3, 12, 21, 5]
+puts
+
+#P1xt #1
+
+def greatest_factor_array(arr)
+ arr.map { |num| greatest_factor(num) }
+end
+
+def greatest_factor(num)
+ return num if (num % 2).odd?
+
+ idx = num / 2
+
+ while idx.positive?
+   return idx if (num % idx).zero?
+
+   idx -= 1
+ end
+end
+
+# P1xt #2
+
+def greatest_factor_array(arr)
+ arr.map { |num| greatest_factor(num) }
+end
+
+def greatest_factor(num)
+ num.odd? ? num : num / 2
+end
+
+# P1xt #3
+
+def greatest_factor_array(arr)
+ arr.map { |num| num.odd? ? num : num / 2 }
+end
+
+# P1xt #4 fix num == 2 bug
+
+def greatest_factor_array(arr)
+ arr.map { |num| num.odd? || num == 2 ? num : num / 2 }
+end
