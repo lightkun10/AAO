@@ -36,6 +36,8 @@ class Dog
   end
 
   def favorite_food?(food)
-    favorite_foods.any? { |ele| ele == food.capitalize }
+    #favorite_foods.any? { |ele| ele == food.capitalize }
+    #No need to downcase both sides: input is formatted the same as .capitalize
+    @favorite_foods.include?(food.capitalize)
   end
 end
