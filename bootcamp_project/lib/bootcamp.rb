@@ -47,7 +47,7 @@ class Bootcamp
 
   def add_grade(student, grade)
     if enrolled?(student)
-      @grades[student] = @grades[student] << grade
+      @grades[student] << grade
       true
     else
       false
@@ -59,13 +59,8 @@ class Bootcamp
   end
 
   def average_grade(student)
-    if !enrolled?(student) || num_grades(student) < 1
-      nil
-    else
-      total = 0
-      @grades[student].each { |ele| total += ele}
-      total / num_grades(student)
-    end
+    return nil if !enrolled?(student) || num_grades(student).zero?
+    @grades[student].sum / num_grades(student)
   end
 end
 
