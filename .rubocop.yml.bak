@@ -1,0 +1,4 @@
+"rubocop": {
+	"lint": true, //Run only lint cops.
+	"forceExclusion": true, //Add --force-exclusion option
+}
