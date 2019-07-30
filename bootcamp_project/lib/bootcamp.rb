@@ -32,9 +32,8 @@ class Bootcamp
     if @students.length < @student_capacity
       @students << name 
       true
-    else
-      false
     end
+    false
   end
 
   def enrolled?(name)
