@@ -49,7 +49,19 @@ class Array
   end
 
   def my_transpose
+  #   transposed = []
 
+  #   self.each do |row|
+  #     row = []
+  #     self.each do |col|
+  #       row << self[col][row]
+  #     end
+  #     transposed << row
+  #   end
+  #   transposed
+  # end
+
+  #   transposed = []
     arr = self
 
     new_arr = Array.new(arr.length){Array.new(arr[0].length)}
