@@ -31,7 +31,7 @@ class Bootcamp
   def enroll(name)
     if @students.length < @student_capacity
       @students << name 
-      true
+      return true
     end
     false
   end
@@ -47,7 +47,7 @@ class Bootcamp
   def add_grade(student, grade)
     if enrolled?(student)
       @grades[student] << grade
-      true
+      return true
     end
     false
   end
