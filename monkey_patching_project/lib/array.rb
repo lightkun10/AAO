@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-
-
 require "byebug"
 # Monkey-Patch Ruby's existing Array class to add your own custom methods
 class Array
@@ -65,14 +63,4 @@ class Array
   end
 end
 
-# transpose
-    # _array = @array.dup
-    # @array = [].tap do |a|
-    #   _array.size.times{|t| a << [] }
-    # end
-    # _array.each_with_index do |row, row_index|
-    #   row.each_with_index do |column, col_index|
-    #     @array[row_index][col_index] = _array[col_index][row_index]
-    #   end
-    # end
-# p ["a", "b", "b"].my_uniq
+
