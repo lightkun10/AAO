@@ -49,9 +49,8 @@ class Bootcamp
     if enrolled?(student)
       @grades[student] << grade
       true
-    else
-      false
     end
+    false
   end
 
   def num_grades(student)
