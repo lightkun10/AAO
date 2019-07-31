@@ -47,13 +47,17 @@ class Array
 
   def my_transpose
     transposed = []
-    each_with_index do |_ele1, row|
-      new_row = []
-      each_with_index do |_ele2, col|
-        new_row << self[col][row]
+
+    self.each_with_index do |ele1, idx1|
+      row = []
+
+      self.each_with_index do |ele2, idx2|
+        row << self[idx2][idx1]
       end
-      transposed << new_row
+
+      transposed << row
     end
+
     transposed
   end
 end
