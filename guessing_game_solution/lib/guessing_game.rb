@@ -1,7 +1,5 @@
 class GuessingGame
   def initialize(min, max)
-    @min = min
-    @max = max
     @secret_num = rand(min..max)
     @num_attempts = 0
     @game_over = false
@@ -15,22 +13,20 @@ class GuessingGame
     @game_over
   end
 
-  # Setters
   def check_num(num)
-    @num_attempts = 0
-    if num == @secret_num
-      @game_over = true
-      p "you win"
-    elsif num > @secret_num
-      p "too big"
+    @num_attempts += 1
+    if num > @secret_num
+      puts "too big"
+    elsif num < @secret_num
+      puts "too small"
     else
-      p "too small"
+      puts "you win"
+      @game_over = true
     end
   end
 
   def ask_user
-    p "enter a number"
-    num = gets.chomp.to_i
-    check_num(num)
+    print "enter a number: "
+    check_num(gets.chomp.to_i)
   end
 end
