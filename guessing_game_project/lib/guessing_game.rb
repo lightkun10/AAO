@@ -17,7 +17,7 @@ class GuessingGame
 
   # Setters
   def check_num(num)
-    @num_attempts = 0
+    @num_attempts += 1
     if num == @secret_num
       @game_over = true
       p "you win"
