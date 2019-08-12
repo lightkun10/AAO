@@ -38,7 +38,7 @@ class Hangman
 
   def try_guess(char)
     array = get_matching_indices(char)
-    if array == []
+    if array.empty?
       @remaining_incorrect_guesses -= 1
     end
     if already_attempted?(char)
@@ -53,8 +53,8 @@ class Hangman
 
   def ask_user_for_guess
     p "Enter a char:"
-    guess = gets.chomp
-    try_guess(guess)
+    # guess = gets.chomp
+    try_guess(gets.chomp)
   end
 
   def win?
@@ -84,5 +84,3 @@ class Hangman
     end
   end
 end
-
-# get_matching_indices A.each_index.select { |index| A[index] == 1 }
