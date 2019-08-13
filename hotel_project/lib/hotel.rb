@@ -37,18 +37,5 @@ class Hotel
 
   def list_rooms
     @rooms.each { |room_name, room| puts "#{room_name} : #{room.available_space}" }
-    # @rooms.each { |key| p "#{key} + #{room.available_space}" }
   end
 end
-
-# hotel = Hotel.new("hilbert's grand hotel", "Basement" => 4, "Attic" => 2, "Under the Stairs" => 1)
-# hotel.check_in("Jesse", "Basement")
-# hotel.check_in("Walter", "Basement")
-# hotel.check_in("Gus", "Basement")
-# hotel.check_in("Hank", "Basement")
-# hotel.check_in("Rick", "Attic")
-# hotel.check_in("Morty", "Attic")
-# hotel.check_in("Harry", "Under the Stairs")
-
-# p hotel.has_vacancy?
-# p hotel.list_rooms
