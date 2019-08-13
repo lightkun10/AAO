@@ -25,7 +25,6 @@ class Room
   end
 
   def add_occupant(name)
-    puts @occupants
     if !full?
       @occupants << name
       true
