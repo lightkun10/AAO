@@ -4,7 +4,7 @@ class Hotel
   def initialize(name, room_caps)
     @name = name
     @rooms = {}
-    room_caps.each { |key, value| @rooms[key] = Room.new(value) }
+    room_caps.each { |room_name, capacity| @rooms[room_name] = Room.new(capacity) }
   end
 
   def name
