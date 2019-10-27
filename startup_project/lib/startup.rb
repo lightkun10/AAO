@@ -53,4 +53,23 @@ class Startup
     end
     total / size
   end
+
+  def close
+    @employees = []
+    @funding = 0
+  end
+
+  def acquire(startup_2)
+    @funding += startup_2.funding
+
+    startup_2.salaries.each do |title, amount|
+      if !@salaries.has_key?(title)
+        @salaries[title] = amount
+      end
+    end
+
+  @employees += startup_2.employees
+  
+  startup_2.close()
+  end
 end
