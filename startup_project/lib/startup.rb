@@ -51,9 +51,6 @@ class Startup
     @employees.each do |employee|
     total += @salaries[employee.title]
     end
-
-    puts total
-    puts size
     total / size
   end
 end
