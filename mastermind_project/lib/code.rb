@@ -29,4 +29,17 @@ class Code
       POSSIBLE_PEGS.keys.sample}
     Code.new(pegs)
   end
+
+  def self.from_string(string)
+    Code.new(string.split(''))
+  end
+
+  def [](idx)
+    @pegs[idx]
+  end
+
+  def length
+    @pegs.length
+  end
+
 end
