@@ -49,7 +49,7 @@ class Startup
   def average_salary
     total = 0
     @employees.each do |employee|
-    total += @salaries[employee.title]
+      total += @salaries[employee.title]
     end
     total / size
   end
@@ -68,8 +68,8 @@ class Startup
       end
     end
 
-  @employees += startup_2.employees
-  
-  startup_2.close()
+    @employees += startup_2.employees
+
+    startup_2.close()
   end
 end
