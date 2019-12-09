@@ -1,49 +1,47 @@
+# frozen_string_literal: true
+
 class Code
   POSSIBLE_PEGS = {
-    "R" => :red,
-    "G" => :green,
-    "B" => :blue,
-    "Y" => :yellow,
-  }
+    'R' => :red,
+    'G' => :green,
+    'B' => :blue,
+    'Y' => :yellow
+  }.freeze
 
   attr_reader :pegs
 
   def initialize(pegs)
     @pegs = pegs.map(&:upcase)
-    if !Code.valid_pegs?(pegs)
-      raise "invalid pegs"
-    end
+    raise 'invalid pegs' unless Code.valid_pegs?(pegs)
   end
 
   def self.valid_pegs?(characters)
     characters.each do |character|
-      if !POSSIBLE_PEGS.include? (character.upcase)
-        return false
-      end
+      return false unless POSSIBLE_PEGS.include? character.upcase
     end
     true
   end
 
   def self.random(number)
-    pegs = Array.new(number) {
+    pegs = Array.new(number) do
       POSSIBLE_PEGS.keys.sample
-    }
+    end
     Code.new(pegs)
   end
 
   def self.from_string(string)
-    Code.new(string.split(""))
+    Code.new(string.split(''))
   end
 
   def [](idx)
     @pegs[idx]
   end
 
-  def length
+  def self.length
     @pegs.length
   end
 
-  def num_exact_matches(guess)
+  def self.num_exact_matches(guess)
     count = 0
     i = 0
     while i < guess.length
@@ -51,5 +49,18 @@ class Code
       i += 1
     end
     count
+  end
+
+  def self.num_near_matches(guess)
+    count = 0
+
+    (0...guess.length). each do |i|
+      count += 1 if guess[i] != @pegs[i] && pegs.include?(guess[i])
+    end
+    count
+  end
+
+  def ==(another_code)
+    pegs == another_code.pegs
   end
 end
