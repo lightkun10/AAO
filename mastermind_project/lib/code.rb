@@ -41,7 +41,7 @@ class Code
     @pegs.length
   end
 
-  def num_exact_matches(guess)
+  def self.num_exact_matches(guess)
     count = 0
     i = 0
     while i < guess.length
@@ -51,7 +51,7 @@ class Code
     count
   end
 
-  def num_near_matches(guess)
+  def self.num_near_matches(guess)
     count = 0
 
     (0...guess.length). each do |i|
